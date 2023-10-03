@@ -1,0 +1,26 @@
+{
+    "name": "@substreams/sink-entity-changes",
+    "version": "0.1.0",
+    "description": "Substreams Sink Entity Changes",
+    "type": "module",
+    "license": "MIT",
+    "types": "./dist/entity_pb.d.ts",
+    "files": [
+        "dist"
+    ],
+    "exports": {
+        ".": {
+            "import": "./dist/entity_pb.js",
+            "require": "./dist/entity_pb.js"
+        }
+    },
+    "scripts": {
+        "codegen": "buf generate ./proto"
+    },
+    "devDependencies": {
+        "@bufbuild/buf": "latest",
+        "@bufbuild/protoc-gen-connect-es": "latest",
+        "@bufbuild/protoc-gen-es": "latest",
+        "typescript": "latest"
+    }
+}
