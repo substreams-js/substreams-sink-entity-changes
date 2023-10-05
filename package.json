@@ -1,23 +1,38 @@
 {
     "name": "@substreams/sink-entity-changes",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Substreams Sink Entity Changes",
     "type": "module",
     "license": "MIT",
-    "types": "./dist/entity_pb.d.ts",
+    "types": "./dist/index.d.ts",
     "files": [
         "dist"
     ],
     "exports": {
         ".": {
-            "import": "./dist/entity_pb.js",
-            "require": "./dist/entity_pb.js"
+            "default": "./dist/index.js",
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        },
+        "./typebox": {
+            "default": "./dist/src/typebox.js",
+            "import": "./dist/src/typebox.js",
+            "types": "./dist/src/typebox.d.ts"
+        },
+        "./entity_pb": {
+            "default": "./dist/src/generated/sf/substreams/sink/entity/v1/entity_pb.js",
+            "import": "./dist/src/generated/sf/substreams/sink/entity/v1/entity_pb.js",
+            "types": "./dist/src/generated/sf/substreams/sink/entity/v1/entity_pb.d.ts"
         }
     },
     "scripts": {
         "build": "tsc",
         "prepublish": "npm run build",
         "codegen": "buf generate ./proto"
+    },
+    "dependencies": {
+        "@bufbuild/protobuf": "latest",
+        "@sinclair/typebox": "latest"
     },
     "devDependencies": {
         "@bufbuild/buf": "latest",
