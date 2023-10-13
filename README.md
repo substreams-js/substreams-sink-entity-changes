@@ -9,7 +9,7 @@ $ npm install @substreams/sink-entity-changes
 ```
 
 ```typescript
-import { typebox, entity_pb } from "@substreams/sink-entity-changes"
+import { typebox, zod, entity_pb } from "@substreams/sink-entity-changes"
 ```
 
 ## Protobuf
@@ -37,7 +37,7 @@ const emitter = new BlockEmitter(transport, request, registry);
 
 // Stream EntityChanges
 emitter.on("output", (output: EntityChanges) => {
-  for ( const entityChange of output.entityChanges) {
+  for ( const entityChange of output?.entityChanges ?? []) {
     console.log(entityChange);
   }
 });
@@ -52,7 +52,22 @@ import { EntityChanges } from "@substreams/sink-entity-changes/typebox"
 const emitter = new BlockEmitter(transport, request, registry);
 
 emitter.on("anyMessage", (message: EntityChanges) => {
-  for ( const entityChange of message.entityChanges) {
+  for ( const entityChange of message.entityChanges ?? []) {
+    console.log(entityChange);
+  }
+});
+```
+
+### Using [Zod](https://github.com/colinhacks/zod) Static Type Resolution
+
+```typescript
+import { EntityChanges } from "@substreams/sink-entity-changes/zod"
+...
+
+const emitter = new BlockEmitter(transport, request, registry);
+
+emitter.on("anyMessage", (message: EntityChanges) => {
+  for ( const entityChange of message.entityChanges ?? []) {
     console.log(entityChange);
   }
 });
