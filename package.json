@@ -1,43 +1,49 @@
 {
-    "name": "@substreams/sink-entity-changes",
-    "version": "0.2.0",
-    "description": "Substreams Sink Entity Changes",
-    "type": "module",
-    "license": "MIT",
-    "types": "./dist/index.d.ts",
-    "files": [
-        "dist"
-    ],
-    "exports": {
-        ".": {
-            "default": "./dist/index.js",
-            "import": "./dist/index.js",
-            "types": "./dist/index.d.ts"
-        },
-        "./typebox": {
-            "default": "./dist/src/typebox.js",
-            "import": "./dist/src/typebox.js",
-            "types": "./dist/src/typebox.d.ts"
-        },
-        "./entity_pb": {
-            "default": "./dist/src/generated/sf/substreams/sink/entity/v1/entity_pb.js",
-            "import": "./dist/src/generated/sf/substreams/sink/entity/v1/entity_pb.js",
-            "types": "./dist/src/generated/sf/substreams/sink/entity/v1/entity_pb.d.ts"
-        }
+  "name": "@substreams/sink-entity-changes",
+  "version": "0.2.0",
+  "description": "Substreams Sink Entity Changes",
+  "type": "module",
+  "license": "MIT",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "default": "./dist/index.js",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     },
-    "scripts": {
-        "build": "tsc",
-        "prepublish": "npm run build",
-        "codegen": "buf generate ./proto"
+    "./typebox": {
+      "default": "./dist/src/typebox.js",
+      "import": "./dist/src/typebox.js",
+      "types": "./dist/src/typebox.d.ts"
     },
-    "dependencies": {
-        "@bufbuild/protobuf": "latest",
-        "@sinclair/typebox": "latest"
+    "./zod": {
+      "default": "./dist/src/zod.js",
+      "import": "./dist/src/zod.js",
+      "types": "./dist/src/zod.d.ts"
     },
-    "devDependencies": {
-        "@bufbuild/buf": "latest",
-        "@bufbuild/protoc-gen-connect-es": "latest",
-        "@bufbuild/protoc-gen-es": "latest",
-        "typescript": "latest"
+    "./entity_pb": {
+      "default": "./dist/src/generated/sf/substreams/sink/entity/v1/entity_pb.js",
+      "import": "./dist/src/generated/sf/substreams/sink/entity/v1/entity_pb.js",
+      "types": "./dist/src/generated/sf/substreams/sink/entity/v1/entity_pb.d.ts"
     }
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "npm run build",
+    "codegen": "buf generate ./proto"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "latest",
+    "@sinclair/typebox": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@bufbuild/buf": "latest",
+    "@bufbuild/protoc-gen-connect-es": "latest",
+    "@bufbuild/protoc-gen-es": "latest",
+    "typescript": "latest"
+  }
 }
