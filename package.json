@@ -1,6 +1,6 @@
 {
   "name": "@substreams/sink-entity-changes",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Substreams Sink Entity Changes",
   "type": "module",
   "license": "MIT",
