@@ -8,7 +8,7 @@ export const EntityChangeOperation = z.enum([
   "OPERATION_FINAL",
 ]);
 
-const SubValue = z.union([
+export const SubValue = z.union([
   z.object({ int32: z.number() }),
   z.object({ bigdecimal: z.string() }),
   z.object({ bigint: z.string() }),

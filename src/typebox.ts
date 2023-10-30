@@ -8,7 +8,7 @@ export const EntityChangeOperation = Type.Enum({
   FINAL: "OPERATION_FINAL",
 });
 
-const SubValue = Type.Union([
+export const SubValue = Type.Union([
   Type.Object({ int32: Type.Number() }),
   Type.Object({ bigdecimal: Type.String() }),
   Type.Object({ bigint: Type.String() }),
