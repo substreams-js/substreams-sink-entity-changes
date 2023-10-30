@@ -8,15 +8,19 @@ export const EntityChangeOperation = Type.Enum({
   FINAL: "OPERATION_FINAL",
 });
 
-export const Value = Type.Union([
+export const SubValue = Type.Union([
   Type.Object({ int32: Type.Number() }),
   Type.Object({ bigdecimal: Type.String() }),
   Type.Object({ bigint: Type.String() }),
   Type.Object({ string: Type.String() }),
   Type.Object({ bytes: Type.String() }),
   Type.Object({ bool: Type.Boolean() }),
-  Type.Object({ array: Type.Array(Type.Unknown()) }),
   Type.Object({ undefined: Type.Optional(Type.Undefined()) }),
+]);
+
+export const Value = Type.Union([
+  Type.Object({ array: Type.Object({ value: Type.Array(SubValue) }) }),
+  SubValue,
 ]);
 
 export const Field = Type.Object({

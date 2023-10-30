@@ -1,6 +1,6 @@
 {
   "name": "@substreams/sink-entity-changes",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Substreams Sink Entity Changes",
   "type": "module",
   "license": "MIT",
@@ -33,7 +33,8 @@
   "scripts": {
     "build": "tsc",
     "prepublish": "npm run build",
-    "codegen": "buf generate ./proto"
+    "codegen": "buf generate ./proto",
+    "test": "vitest run"
   },
   "dependencies": {
     "@bufbuild/protobuf": "latest",
@@ -44,6 +45,7 @@
     "@bufbuild/buf": "latest",
     "@bufbuild/protoc-gen-connect-es": "latest",
     "@bufbuild/protoc-gen-es": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "vitest": "^0.34.6"
   }
 }

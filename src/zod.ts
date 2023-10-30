@@ -8,16 +8,17 @@ export const EntityChangeOperation = z.enum([
   "OPERATION_FINAL",
 ]);
 
-export const Value = z.union([
+export const SubValue = z.union([
   z.object({ int32: z.number() }),
   z.object({ bigdecimal: z.string() }),
   z.object({ bigint: z.string() }),
   z.object({ string: z.string() }),
   z.object({ bytes: z.string() }),
   z.object({ bool: z.boolean() }),
-  z.object({ array: z.array(z.unknown()) }),
   z.object({ undefined: z.optional(z.undefined()) }),
 ]);
+
+export const Value = z.object({ array: z.object({ value: z.array(SubValue) }) }).or(SubValue);
 
 export const Field = z.object({
   name: z.string(),
