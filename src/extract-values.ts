@@ -11,8 +11,7 @@ export function getValuesInEntityChange(change: EntityChange) {
 
       if (key === "array") {
         const { value: array } = value as { value: Record<string, unknown>[] };
-        const arrayData = array.flatMap(Object.values);
-        values[field.name] = `[${arrayData.join(", ")}]`;
+        values[field.name] = array.flatMap(Object.values);
       } else {
         values[field.name] = value;
       }

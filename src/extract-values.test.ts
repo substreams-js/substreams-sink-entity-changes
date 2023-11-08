@@ -32,7 +32,7 @@ test("getValuesInEntityChange", () => {
     "value d": "1234.5678",
     "value e": true,
     "value f": "eeff",
-    "value h": "[1, 2, 3, 4]",
+    "value h": [1, 2, 3, 4],
   });
   expect("value g" in values).toBeFalsy();
 });
