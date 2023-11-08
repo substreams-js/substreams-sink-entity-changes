@@ -9,7 +9,7 @@ $ npm install @substreams/sink-entity-changes
 ```
 
 ```typescript
-import { typebox, zod, entity_pb } from "@substreams/sink-entity-changes"
+import { typebox, zod } from "@substreams/sink-entity-changes"
 ```
 
 ## Protobuf
@@ -25,22 +25,6 @@ message EntityChange {
   Operation operation = 4;
   repeated Field fields = 5;
 }
-```
-
-### Using [Buf](https://github.com/bufbuild/protobuf-es) Protobuf codegen
-
-```typescript
-import { EntityChanges } from "@substreams/sink-entity-changes/entity_pb"
-...
-
-const emitter = new BlockEmitter(transport, request, registry);
-
-// Stream EntityChanges
-emitter.on("output", (output: EntityChanges) => {
-  for ( const entityChange of output?.entityChanges ?? []) {
-    console.log(entityChange);
-  }
-});
 ```
 
 ### Using [TypeBox](https://github.com/sinclairzx81/typebox) Static Type Resolution
@@ -68,6 +52,22 @@ const emitter = new BlockEmitter(transport, request, registry);
 
 emitter.on("anyMessage", (message: EntityChanges) => {
   for ( const entityChange of message.entityChanges ?? []) {
+    console.log(entityChange);
+  }
+});
+```
+
+### Using [Buf](https://github.com/bufbuild/protobuf-es) Protobuf codegen
+
+```typescript
+import { EntityChanges } from "@substreams/sink-entity-changes/entity_pb"
+...
+
+const emitter = new BlockEmitter(transport, request, registry);
+
+// Stream EntityChanges
+emitter.on("output", (output: EntityChanges) => {
+  for ( const entityChange of output?.entityChanges ?? []) {
     console.log(entityChange);
   }
 });
