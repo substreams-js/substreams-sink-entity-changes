@@ -1,6 +1,5 @@
 import { expect, test } from "vitest";
-import { getValuesInEntityChange } from "./extract-values.js";
-import { EntityChange } from "./zod.js";
+import { EntityChange, getValuesInEntityChange } from "./zod.js";
 
 test("getValuesInEntityChange", () => {
   const change: Partial<EntityChange> = {
