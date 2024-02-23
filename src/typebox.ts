@@ -31,7 +31,7 @@ export const Field = Type.Object({
 export const EntityChange = Type.Object({
   entity: Type.String(),
   id: Type.String(),
-  ordinal: Type.String(),
+  ordinal: Type.Optional(Type.String()), // // Deprecated, this is not used within `graph-node`.
   operation: EntityChangeOperation,
   fields: Type.Array(Field),
 });

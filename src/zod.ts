@@ -28,7 +28,7 @@ export const Field = z.object({
 export const EntityChange = z.object({
   entity: z.string(),
   id: z.string(),
-  ordinal: z.string(),
+  ordinal: z.optional(z.string()), // Deprecated, this is not used within `graph-node`.
   operation: EntityChangeOperation,
   fields: z.array(Field),
 });
