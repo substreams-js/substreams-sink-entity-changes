@@ -45,7 +45,7 @@ emitter.on("anyMessage", (message: EntityChanges) => {
 ### Using [Zod](https://github.com/colinhacks/zod) Static Type Resolution
 
 ```typescript
-import { EntityChanges } from "@substreams/sink-entity-changes/zod"
+import { EntityChanges, getValuesInEntityChange } from "@substreams/sink-entity-changes/zod"
 ...
 
 const emitter = new BlockEmitter(transport, request, registry);
@@ -53,8 +53,22 @@ const emitter = new BlockEmitter(transport, request, registry);
 emitter.on("anyMessage", (message: EntityChanges) => {
   for ( const entityChange of message.entityChanges ?? []) {
     console.log(entityChange);
+    const values = getValuesInEntityChange(entityChange);
+    const address = values["address"];
   }
 });
+```
+
+**getValuesInEntityChange**
+
+```typescript
+import { getValuesInEntityChange } from "@substreams/sink-entity-changes/zod"
+...
+
+for ( const entityChange of message.entityChanges ?? []) {
+  const values = getValuesInEntityChange(entityChange);
+  const address = values["address"];
+}
 ```
 
 ### Using [Buf](https://github.com/bufbuild/protobuf-es) Protobuf codegen
