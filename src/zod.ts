@@ -55,7 +55,7 @@ export function getValuesInEntityChange(change: EntityChange) {
 
   for (const field of change.fields) {
     for (const [key, value] of Object.entries(field.newValue ?? {})) {
-      if (!value) {
+      if (value === undefined || value === null) {
         continue;
       }
 
