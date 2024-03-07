@@ -6,6 +6,13 @@ export const EntityChangeOperation = z.enum([
   "OPERATION_UPDATE",
   "OPERATION_DELETE",
   "OPERATION_FINAL",
+
+  // legacy operations from EntityChanges v1.1.0
+  "UNSET",
+  "CREATE",
+  "UPDATE",
+  "DELETE",
+  "FINAL",
 ]);
 
 export const SubValue = z.union([
